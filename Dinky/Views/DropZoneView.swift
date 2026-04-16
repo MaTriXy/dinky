@@ -115,7 +115,7 @@ struct DropZoneView: View {
         case .idle:
             VStack(spacing: 5) {
                 Text("Drop images here")
-                    .font(.title3).foregroundStyle(.primary.opacity(0.7))
+                    .font(.title3).foregroundStyle(.primary)
                 Text("or click to browse")
                     .font(.caption).foregroundStyle(.secondary)
             }
