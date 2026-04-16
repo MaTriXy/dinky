@@ -372,7 +372,7 @@ struct ContentView: View {
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 12)
-        .glassEffect(in: RoundedRectangle(cornerRadius: 0, style: .continuous))
+        .adaptiveGlass(in: RoundedRectangle(cornerRadius: 0, style: .continuous))
     }
 
     private var statusText: String {

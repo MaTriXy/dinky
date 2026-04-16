@@ -236,7 +236,7 @@ struct SidebarView: View {
         .padding(12)
         }
         .frame(width: 220)
-        .glassEffect(in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+        .adaptiveGlass(in: RoundedRectangle(cornerRadius: 16, style: .continuous))
         .animation(.easeInOut(duration: 0.2), value: prefs.maxWidthEnabled)
         .animation(.easeInOut(duration: 0.2), value: prefs.maxFileSizeEnabled)
         .animation(.easeInOut(duration: 0.2), value: prefs.sanitizeFilenames)

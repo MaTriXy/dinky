@@ -68,7 +68,7 @@ struct UpdateBanner: View {
         .padding(.horizontal, 14)
         .padding(.vertical, 8)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .glassEffect(in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+        .adaptiveGlass(in: RoundedRectangle(cornerRadius: 12, style: .continuous))
         .padding(.horizontal, 12)
         .padding(.top, 12)
         .transition(.asymmetric(

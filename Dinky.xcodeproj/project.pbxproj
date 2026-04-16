@@ -28,6 +28,7 @@
 		UC000001000000000000001 /* UpdateChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = UC100001000000000000001 /* UpdateChecker.swift */; };
 		UB000001000000000000001 /* UpdateBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = UB100001000000000000001 /* UpdateBanner.swift */; };
 		CC000001000000000000001 /* ContentClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC100001000000000000001 /* ContentClassifier.swift */; };
+		AG000001000000000000001 /* View+AdaptiveGlass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AG100001000000000000001 /* View+AdaptiveGlass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		UC100001000000000000001 /* UpdateChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateChecker.swift; sourceTree = "<group>"; };
 		UB100001000000000000001 /* UpdateBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBanner.swift; sourceTree = "<group>"; };
 		CC100001000000000000001 /* ContentClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentClassifier.swift; sourceTree = "<group>"; };
+		AG100001000000000000001 /* View+AdaptiveGlass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+AdaptiveGlass.swift"; sourceTree = "<group>"; };
 		D1032BF7B7A74FAF99A74DB7 /* AntyMascotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntyMascotView.swift; sourceTree = "<group>"; };
 		DD000001000000000000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD000002000000000000002 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,14 @@
 				CC100001000000000000001 /* ContentClassifier.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		EX100001000000000000001 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AG100001000000000000001 /* View+AdaptiveGlass.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		3337D9E5CCB647BAA20571DE /* Products */ = {
@@ -245,6 +255,7 @@
 				UC000001000000000000001 /* UpdateChecker.swift in Sources */,
 				UB000001000000000000001 /* UpdateBanner.swift in Sources */,
 				CC000001000000000000001 /* ContentClassifier.swift in Sources */,
+				AG000001000000000000001 /* View+AdaptiveGlass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,7 +310,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -361,7 +372,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
