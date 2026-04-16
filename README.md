@@ -22,14 +22,14 @@ Supports JPG, PNG, WebP, and AVIF. Outputs WebP or AVIF depending on your prefer
 - **Notifications** — get a tap when a batch finishes, with messaging that varies by count and time
 - **Advanced** — strip metadata, sanitize filenames for web, open output folder automatically, move originals to trash
 - **Quirky idle animation** — three choreographed card-drop variants that loop then hold until you come back
-- 4.1 MB. Appropriately dinky.
+- 3.7 MB. Appropriately dinky.
 
 ### What others don't do
 
 - **Actually changes the format** — ImageOptim squeezes your JPEG and hands it back as a JPEG. Dinky converts to WebP or AVIF, which is where 30–80% of the real savings live. Optimage does this too, but costs money and weighs 62 MB.
 - **Results you can act on** — most compression apps give you a done screen you can't do anything with. Dinky's results list works like Finder: select files, drag them somewhere else, double-click to open, right-click to remove individual items.
 - **Notifications with a personality** — other apps either don't notify at all or send a generic "Done." Dinky's notification changes based on how many files you compressed and how long it took. Small things, but they add up.
-- **Free, open source, and tiny** — Optimage is $69. ImageOptim is free but lossless only. Dinky is free, open source, converts formats, and fits in a fraction of the space either of them takes up.
+- **Free, open source, and tiny** — Optimage is $69. ImageOptim is free but lossless only. Dinky is free, open source, converts formats, and at 3.7 MB fits in a fraction of the space either of them takes up.
 
 ## Why it exists
 
@@ -45,7 +45,7 @@ Dinky takes a different approach: it converts to WebP or AVIF. That format chang
 
 ## How it works
 
-Built entirely in Swift and SwiftUI for macOS 26 (Tahoe). No Electron, no web views, no third-party UI frameworks. The whole app is 4.1 MB, which feels appropriate for something called Dinky.
+Built entirely in Swift and SwiftUI for macOS 26 (Tahoe). No Electron, no web views, no third-party UI frameworks. The whole app is 3.7 MB, which feels appropriate for something called Dinky. (3 + 7 = 10. Coincidence? Yes. Still great.)
 
 Compression runs through a native `actor`-based service that shells out to platform image tools, keeping the main thread free. Multiple files compress concurrently up to the core count of the machine. Output quality is tuned automatically to hit the target file size if one is set.
 
