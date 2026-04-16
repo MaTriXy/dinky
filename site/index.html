@@ -11,14 +11,14 @@
 
   <meta property="og:title" content="Dinky — Compresses images. Stays dinky." />
   <meta property="og:description" content="A tiny macOS app that converts JPGs and PNGs to WebP, AVIF, or lossless PNG. Drag and drop, get smaller files back. 4.3 MB. Free and open source." />
-  <meta property="og:image" content="https://dinkyimg.app/screenshots/screenshot-drop-zone.png" />
+  <meta property="og:image" content="https://dinkyimg.app/screenshots/screenshot-drop-zone.webp" />
   <meta property="og:url" content="https://dinkyimg.app" />
   <meta property="og:type" content="website" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Dinky — Compresses images. Stays dinky." />
   <meta name="twitter:description" content="A tiny macOS app that converts JPGs and PNGs to WebP, AVIF, or lossless PNG. 4.3 MB. Free and open source." />
-  <meta name="twitter:image" content="https://dinkyimg.app/screenshots/screenshot-drop-zone.png" />
+  <meta name="twitter:image" content="https://dinkyimg.app/screenshots/screenshot-drop-zone.webp" />
 
   <style>
     :root {
@@ -65,10 +65,12 @@
     }
 
     .app-icon {
-      width: 128px;
-      height: 128px;
+      width: 104px;
+      height: 104px;
       margin-bottom: 32px;
-      filter: drop-shadow(0 8px 24px rgba(62, 123, 232, 0.15));
+      filter:
+        drop-shadow(0 1px 1px rgba(0, 0, 0, 0.08))
+        drop-shadow(0 10px 20px rgba(0, 0, 0, 0.18));
     }
 
     h1 {
@@ -106,13 +108,14 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-size: 15px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 14px;
       font-weight: 500;
       text-decoration: none;
       transition: background 0.15s ease, transform 0.1s ease;
       border: 1px solid transparent;
+      line-height: 1.4;
     }
 
     .btn-primary {
@@ -135,8 +138,8 @@
     }
 
     .btn svg {
-      width: 16px;
-      height: 16px;
+      width: 14px;
+      height: 14px;
     }
 
     .version {
@@ -161,6 +164,14 @@
       height: auto;
       border-radius: 12px;
       box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .meta-note {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-align: center;
+      font-style: italic;
     }
 
     footer {
@@ -195,8 +206,8 @@
       }
 
       .app-icon {
-        width: 104px;
-        height: 104px;
+        width: 88px;
+        height: 88px;
         margin-bottom: 24px;
       }
 
@@ -238,10 +249,11 @@
   </section>
 
   <section class="screenshots">
-    <img src="screenshots/screenshot-drop-zone.png" alt="Dinky drop zone idle state" />
-    <img src="screenshots/screenshot-sidebar-format.png" alt="Dinky sidebar — format, max width, max file size, destination" />
-    <img src="screenshots/screenshot-sidebar-advanced.png" alt="Dinky sidebar — performance, notifications, advanced" />
+    <img src="screenshots/screenshot-drop-zone.webp" alt="Dinky drop zone idle state" />
+    <img src="screenshots/screenshot-sidebar-format.webp" alt="Dinky sidebar — format, max width, max file size, destination" />
+    <img src="screenshots/screenshot-sidebar-advanced.webp" alt="Dinky sidebar — performance, notifications, advanced" />
   </section>
+  <p class="meta-note">Every screenshot on this page was compressed with Dinky. Obviously.</p>
 
   <footer>
     Built by <a href="https://www.heyderekj.com">Derek Castelli</a>.
