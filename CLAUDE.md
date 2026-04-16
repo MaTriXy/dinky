@@ -11,11 +11,11 @@ Dinky is ~4 MB. That's the whole point. Before adding **anything** — a framewo
 - No Electron, no web views, no bundled runtimes, no embedded web engines. Ever.
 - Assets (images, fonts) should be SVG/SF Symbols where possible. Raster assets must be justified.
 
-**Current footprint reference:** Dinky 3.7 MB vs Optimage 62 MB vs ImageOptim 17.6 MB. Keep it dinky.
+**Current footprint reference:** Dinky 4.3 MB vs Optimage 62 MB vs ImageOptim 17.6 MB. Keep it dinky.
 
 ## Project Context
 
 - macOS app, SwiftUI + macOS 26 (Tahoe), `.glassEffect()`, `.ultraThinMaterial`
 - Built by Derek Castelli — full-time freelance web designer (Webflow/Figma) at heyderekj.com
-- Compression engines: `cwebp`, `avifenc`, `cjpeg`, `oxipng` (CLI tools, not bundled)
+- Compression engines: `cwebp`, `avifenc`, `oxipng` (CLI tools, not bundled)
 - GitHub: https://github.com/heyderekj/dinky
