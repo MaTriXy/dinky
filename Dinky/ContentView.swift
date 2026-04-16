@@ -457,13 +457,13 @@ private func presentManualUpdateResult(_ result: UpdateChecker.CheckResult,
     case .updateAvailable(let version):
         alert.messageText = "A newer dinky has dropped."
         alert.informativeText = "Version \(version) is out. You're on \(currentAppVersion()). Want it?"
-        alert.addButton(withTitle: "Download")
+        alert.addButton(withTitle: "Install Update")
         alert.addButton(withTitle: "What's new")
         alert.addButton(withTitle: "Maybe later")
 
         let response = alert.runModal()
-        if response == .alertFirstButtonReturn, let url = updater.downloadURL {
-            NSWorkspace.shared.open(url)
+        if response == .alertFirstButtonReturn {
+            Task { await updater.downloadAndInstall() }
         } else if response == .alertSecondButtonReturn, let url = updater.releaseURL {
             NSWorkspace.shared.open(url)
         }

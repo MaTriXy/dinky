@@ -118,16 +118,21 @@ final class UpdateChecker: ObservableObject {
                 .flatMap(Int64.init) ?? 0
 
             var received: Int64 = 0
+            var lastUIUpdate: Int64 = 0
+            let updateInterval: Int64 = 128 * 1024  // update UI every 128 KB
             var buffer = Data()
             if total > 0 { buffer.reserveCapacity(Int(total)) }
 
             for try await byte in asyncBytes {
                 buffer.append(byte)
                 received += 1
-                if total > 0 {
+                if total > 0 && (received - lastUIUpdate) >= updateInterval {
+                    lastUIUpdate = received
                     installState = .downloading(progress: Double(received) / Double(total))
                 }
             }
+            // Final progress tick so the bar reaches 100% before switching to installing
+            if total > 0 { installState = .downloading(progress: 1.0) }
             try buffer.write(to: tempDMG)
 
             // ── 2. Mount ──────────────────────────────────────────────
@@ -150,8 +155,11 @@ final class UpdateChecker: ObservableObject {
             let source = URL(fileURLWithPath: mountPoint).appendingPathComponent("Dinky.app")
             let dest   = Bundle.main.bundleURL  // replace the running app in-place
 
-            // Use shell cp -R so we don't accidentally add quarantine via FM
-            try await shell("/bin/cp", ["-Rf", source.path, dest.deletingLastPathComponent().path])
+            // Remove the old bundle first so ditto gets a clean destination.
+            _ = try? FileManager.default.removeItem(at: dest)
+            // ditto is the correct macOS tool for copying .app bundles —
+            // preserves HFS+ metadata and resource forks, no quarantine added.
+            try await shell("/usr/bin/ditto", [source.path, dest.path])
 
             // ── 4. Detach ─────────────────────────────────────────────
             _ = try? await shell("/usr/bin/hdiutil", ["detach", mountPoint, "-force"])

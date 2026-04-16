@@ -64,22 +64,36 @@ struct UpdateBanner: View {
                 Button {
                     Task { await updater.downloadAndInstall() }
                 } label: {
-                    Text("Install Update")
-                        .font(.caption.weight(.semibold))
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 4)
+                    HStack(spacing: 4) {
+                        Image(systemName: "arrow.down.circle.fill")
+                            .imageScale(.small)
+                        Text("Install Update")
+                    }
+                    .font(.caption.weight(.medium))
+                    .foregroundStyle(.white)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 3)
+                    .background(RoundedRectangle(cornerRadius: 6, style: .continuous).fill(Color.accentColor))
                 }
-                .buttonStyle(.borderedProminent)
-                .controlSize(.small)
+                .buttonStyle(.plain)
             }
 
             if case .failed = updater.installState {
-                Button("Retry") {
+                Button {
                     Task { await updater.downloadAndInstall() }
+                } label: {
+                    HStack(spacing: 4) {
+                        Image(systemName: "arrow.counterclockwise")
+                            .imageScale(.small)
+                        Text("Retry")
+                    }
+                    .font(.caption.weight(.medium))
+                    .foregroundStyle(.white)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 3)
+                    .background(RoundedRectangle(cornerRadius: 6, style: .continuous).fill(Color.accentColor))
                 }
-                .buttonStyle(.borderedProminent)
-                .controlSize(.small)
-                .font(.caption.weight(.semibold))
+                .buttonStyle(.plain)
             }
 
             // Dismiss — hidden while install is in progress
