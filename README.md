@@ -23,6 +23,15 @@ The app registers as an "Open with" handler and exposes a Finder Quick Action so
 - `NSServices` for Finder integration
 - Claude for most of the code
 
+## Compression engines
+
+Dinky is a native front-end for these open-source CLI tools, which do the actual work:
+
+- [cwebp](https://developers.google.com/speed/webp) — Google's WebP encoder (BSD)
+- [avifenc](https://github.com/AOMediaCodec/libavif) — Alliance for Open Media's AVIF encoder (BSD)
+- [cjpeg](https://github.com/mozilla/mozjpeg) — Mozilla's MozJPEG (MPL/BSD)
+- [oxipng](https://github.com/shssoichiro/oxipng) — lossless PNG optimizer in Rust (MIT)
+
 ## Install
 
 Download the DMG, drag Dinky to Applications, and open it. macOS may ask you to approve it on first launch since it is not distributed through the App Store.
