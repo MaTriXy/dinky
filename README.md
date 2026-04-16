@@ -4,6 +4,18 @@ A small macOS utility that compresses images. Drop files in, get smaller ones ba
 
 Supports JPG, PNG, WebP, and AVIF. Outputs WebP or AVIF depending on your preference. Strips metadata, respects max dimensions and file size targets, and saves next to the original by default.
 
+## Why it exists
+
+Optimage crashed. Instead of finding a replacement, I figured it was a good excuse to build my own — this was my first macOS app.
+
+I liked [Squoosh](https://github.com/GoogleChromeLabs/squoosh) but didn't want to be in a browser every time I needed to compress something. I wanted something that lived on my Mac, stayed out of the way, and just worked.
+
+## How it differs from ImageOptim and Optimage
+
+ImageOptim is lossless only — it makes your JPEG or PNG smaller without changing the format. Optimage does lossy and lossless but also mostly keeps you in the source format. Both are good at what they do.
+
+Dinky takes a different approach: it converts to WebP or AVIF. That format change is where most of the real savings come from — often 30–80% smaller than a JPEG or PNG at the same visual quality. If you're putting images on the web or into a CMS and you're still working with JPEGs and PNGs, converting the format matters more than squeezing the existing one.
+
 ## How it works
 
 Built entirely in Swift and SwiftUI for macOS 26 (Tahoe). No Electron, no web views, no third-party UI frameworks.
