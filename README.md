@@ -5,9 +5,9 @@ A small macOS utility that compresses images. Drop files in, get smaller ones ba
 Supports JPG, PNG, WebP, and AVIF. Outputs WebP, AVIF, or lossless PNG depending on your preference. Strips metadata, respects max dimensions and file size targets, and saves next to the original by default.
 
 <p align="center">
-  <img src="Screenshots/drop-zone.png" width="32%" alt="Drop zone idle state" />
-  <img src="Screenshots/sidebar-format.png" width="32%" alt="Sidebar — format and destination" />
-  <img src="Screenshots/sidebar-advanced.png" width="32%" alt="Sidebar — performance and advanced" />
+  <img src="Screenshots/screenshot-drop-zone.png" width="32%" alt="Drop zone idle state" />
+  <img src="Screenshots/screenshot-sidebar-format.png" width="32%" alt="Sidebar — format and destination" />
+  <img src="Screenshots/screenshot-sidebar-advanced.png" width="32%" alt="Sidebar — performance and advanced" />
 </p>
 
 ## About the developer
