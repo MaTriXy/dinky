@@ -32,7 +32,7 @@ Hey! I'm [Derek Castelli](https://www.heyderekj.com), a full-time freelance web 
 - **Update-aware** — checks GitHub for new releases on launch so you don't have to
 - **Advanced** — strip metadata, sanitize filenames for web, open output folder automatically, move originals to trash
 - **Quirky idle animation** — three choreographed card-drop variants that loop then hold until you come back
-- 4.8 MB. Still very dinky. (4 + 8 = 12. A dozen. We'll take it.)
+- 4.8 MB. Dinky style. (4 + 8 = 12. A dozen. Donuts anyone?)
 
 ### What others don't do
 
