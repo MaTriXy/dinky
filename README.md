@@ -46,4 +46,4 @@ Dinky is a native front-end for these open-source CLI tools, which do the actual
 
 ## Install
 
-Download the DMG, drag Dinky to Applications, and open it. macOS may ask you to approve it on first launch since it is not distributed through the App Store.
+Download the DMG, drag Dinky to Applications. On first launch, right-click the app and choose Open instead of double-clicking — macOS will ask you to confirm since the app isn't notarized. After that one-time step it opens normally.
