@@ -333,21 +333,35 @@ private struct PresetsTab: View {
             Toggle("Smart quality", isOn: binding(\.smartQuality, snapshot: snapshot))
             Toggle("Auto-format", isOn: binding(\.autoFormat, snapshot: snapshot))
         }
-        Section("Limits") {
-            HStack {
-                Toggle("Max width", isOn: binding(\.maxWidthEnabled, snapshot: snapshot))
-                Spacer()
-                if snapshot.maxWidthEnabled {
-                    TextField("", value: binding(\.maxWidth, snapshot: snapshot), format: .number).frame(width: 70)
+        Section("Max Width") {
+            Toggle("Limit width", isOn: binding(\.maxWidthEnabled, snapshot: snapshot))
+            if snapshot.maxWidthEnabled {
+                presetChips(
+                    presets: [("640", 640), ("1080", 1080), ("1280", 1280),
+                              ("1920", 1920), ("2560", 2560), ("3840", 3840)],
+                    current: snapshot.maxWidth,
+                    onSelect: { set(\.maxWidth, to: $0, for: snapshot) }
+                )
+                HStack(spacing: 6) {
+                    TextField("1920", value: binding(\.maxWidth, snapshot: snapshot), format: .number)
+                        .textFieldStyle(.roundedBorder).frame(width: 80)
                     Text("px").foregroundStyle(.secondary)
                 }
             }
-            HStack {
-                Toggle("Max file size", isOn: binding(\.maxFileSizeEnabled, snapshot: snapshot))
-                Spacer()
-                if snapshot.maxFileSizeEnabled {
-                    TextField("", value: binding(\.maxFileSizeKB, snapshot: snapshot), format: .number).frame(width: 70)
-                    Text("KB").foregroundStyle(.secondary)
+        }
+        Section("Max File Size") {
+            Toggle("Limit file size", isOn: binding(\.maxFileSizeEnabled, snapshot: snapshot))
+            if snapshot.maxFileSizeEnabled {
+                presetChips(
+                    presets: [("0.5 MB", 512), ("1 MB", 1024), ("2 MB", 2048),
+                              ("5 MB", 5120), ("10 MB", 10240)],
+                    current: snapshot.maxFileSizeKB,
+                    onSelect: { set(\.maxFileSizeKB, to: $0, for: snapshot) }
+                )
+                HStack(spacing: 6) {
+                    TextField("2", value: mbBinding(for: snapshot), format: .number)
+                        .textFieldStyle(.roundedBorder).frame(width: 80)
+                    Text("MB").foregroundStyle(.secondary)
                 }
             }
         }
@@ -411,5 +425,47 @@ private struct PresetsTab: View {
                 prefs.savedPresets = presets
             }
         )
+    }
+
+    private func set<T>(_ keyPath: WritableKeyPath<CompressionPreset, T>, to value: T, for snapshot: CompressionPreset) {
+        guard let idx = prefs.savedPresets.firstIndex(where: { $0.id == snapshot.id }) else { return }
+        var presets = prefs.savedPresets
+        presets[idx][keyPath: keyPath] = value
+        prefs.savedPresets = presets
+    }
+
+    private func mbBinding(for snapshot: CompressionPreset) -> Binding<Double> {
+        Binding(
+            get: {
+                let live = prefs.savedPresets.first(where: { $0.id == snapshot.id }) ?? snapshot
+                return Double(live.maxFileSizeKB) / 1024.0
+            },
+            set: { set(\.maxFileSizeKB, to: max(1, Int($0 * 1024)), for: snapshot) }
+        )
+    }
+
+    private func presetChips(presets: [(String, Int)], current: Int, onSelect: @escaping (Int) -> Void) -> some View {
+        let columns = [GridItem(.adaptive(minimum: 60), spacing: 4)]
+        return LazyVGrid(columns: columns, alignment: .leading, spacing: 4) {
+            ForEach(presets, id: \.1) { label, value in
+                let active = current == value
+                Text(label)
+                    .font(.system(size: 11, weight: active ? .semibold : .regular))
+                    .foregroundStyle(active ? .white : .secondary)
+                    .padding(.horizontal, 6).padding(.vertical, 4)
+                    .frame(maxWidth: .infinity)
+                    .background(
+                        RoundedRectangle(cornerRadius: 5, style: .continuous)
+                            .fill(active
+                                  ? AnyShapeStyle(LinearGradient(
+                                        colors: [Color(red: 0.25, green: 0.55, blue: 1.0),
+                                                 Color(red: 0.45, green: 0.30, blue: 0.95)],
+                                        startPoint: .leading, endPoint: .trailing))
+                                  : AnyShapeStyle(Color.primary.opacity(0.08)))
+                    )
+                    .contentShape(Rectangle())
+                    .onTapGesture { onSelect(value) }
+            }
+        }
     }
 }
