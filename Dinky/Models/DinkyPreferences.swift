@@ -85,7 +85,7 @@ final class DinkyPreferences: ObservableObject {
 
     // MARK: Smart quality
     @AppStorage("smartQuality")         var smartQuality: Bool = true
-    @AppStorage("autoFormat")           var autoFormat: Bool = false
+    @AppStorage("autoFormat")           var autoFormat: Bool = true
 
     // MARK: Lifetime stats
     @AppStorage("lifetimeSavedBytesRaw") var lifetimeSavedBytesRaw: Double = 0

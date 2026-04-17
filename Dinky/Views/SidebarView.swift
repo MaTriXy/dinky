@@ -50,41 +50,50 @@ struct SidebarView: View {
 
                 // ── Format ──────────────────────────────────────────
                 sectionGroup(icon: "photo", title: "Format") {
-                    let formatOptions: [(String, CompressionFormat?)] = [
-                        ("WebP", .webp), ("AVIF", .avif), ("PNG", .png), ("Auto", nil)
+                    let formatOptions: [(String, CompressionFormat?, String)] = [
+                        ("Auto",  nil,   "AVIF for photos, WebP for everything else"),
+                        ("WebP",  .webp, "Universal — works in every browser"),
+                        ("AVIF",  .avif, "Smallest files, slower to encode"),
+                        ("PNG",   .png,  "Lossless — best for screenshots"),
                     ]
-                    let columns = [GridItem(.adaptive(minimum: 52), spacing: 4)]
-                    LazyVGrid(columns: columns, alignment: .leading, spacing: 4) {
-                        ForEach(formatOptions, id: \.0) { label, fmt in
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 4) {
+                        ForEach(formatOptions, id: \.0) { label, fmt, description in
                             let active: Bool = fmt == nil
                                 ? prefs.autoFormat
                                 : !prefs.autoFormat && selectedFormat == fmt
-                            Text(label)
-                                .font(.system(size: 11, weight: active ? .semibold : .regular))
-                                .foregroundStyle(active ? .white : .secondary)
-                                .padding(.horizontal, 6).padding(.vertical, 3)
-                                .frame(maxWidth: .infinity)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 5, style: .continuous)
-                                        .fill(active
-                                              ? AnyShapeStyle(LinearGradient(
-                                                    colors: [Color(red: 0.25, green: 0.55, blue: 1.0),
-                                                             Color(red: 0.45, green: 0.30, blue: 0.95)],
-                                                    startPoint: .leading, endPoint: .trailing))
-                                              : AnyShapeStyle(Color.primary.opacity(0.08)))
-                                )
-                                .contentShape(Rectangle())
-                                .onTapGesture {
-                                    if let f = fmt {
-                                        prefs.autoFormat = false
-                                        selectedFormat = f
-                                    } else {
-                                        prefs.autoFormat = true
-                                    }
+                            VStack(alignment: .leading, spacing: 3) {
+                                Text(label)
+                                    .font(.system(size: 11, weight: .semibold))
+                                    .foregroundStyle(active ? .white : .primary)
+                                Text(description)
+                                    .font(.system(size: 9))
+                                    .foregroundStyle(active ? .white.opacity(0.75) : .secondary)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .lineLimit(2)
+                            }
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 7)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(
+                                RoundedRectangle(cornerRadius: 7, style: .continuous)
+                                    .fill(active
+                                          ? AnyShapeStyle(LinearGradient(
+                                                colors: [Color(red: 0.25, green: 0.55, blue: 1.0),
+                                                         Color(red: 0.45, green: 0.30, blue: 0.95)],
+                                                startPoint: .topLeading, endPoint: .bottomTrailing))
+                                          : AnyShapeStyle(Color.primary.opacity(0.06)))
+                            )
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                if let f = fmt {
+                                    prefs.autoFormat = false
+                                    selectedFormat = f
+                                } else {
+                                    prefs.autoFormat = true
                                 }
+                            }
                         }
                     }
-                    helper("Auto picks AVIF for photos, WebP for everything else.")
                 }
 
                 // ── Max Width ────────────────────────────────────────
