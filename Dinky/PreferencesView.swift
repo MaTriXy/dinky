@@ -301,6 +301,7 @@ private struct PresetsTab: View {
                         }
                     }
                     .buttonStyle(.plain)
+                    .contentShape(Rectangle())
                 }
             }
             HStack(spacing: 12) {
