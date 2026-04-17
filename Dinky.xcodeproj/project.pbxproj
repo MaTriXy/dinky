@@ -30,6 +30,16 @@
 		CC000001000000000000001 /* ContentClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC100001000000000000001 /* ContentClassifier.swift */; };
 		AG000001000000000000001 /* View+AdaptiveGlass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AG100001000000000000001 /* View+AdaptiveGlass.swift */; };
 		LB000001000000000000001 /* lib in Resources */ = {isa = PBXBuildFile; fileRef = LB100001000000000000001 /* lib */; };
+		MB000001000000000000001 /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = MB100001000000000000001 /* MenuBarController.swift */; };
+		CI000001000000000000001 /* ClipboardImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CI100001000000000000001 /* ClipboardImporter.swift */; };
+		FW000001000000000000001 /* FolderWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FW100001000000000000001 /* FolderWatcher.swift */; };
+		MBC00001000000000000001 /* MenuBarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = MBC10001000000000000001 /* MenuBarContentView.swift */; };
+		IPS00001000000000000001 /* ImagePreviewSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = IPS10001000000000000001 /* ImagePreviewSheet.swift */; };
+		PV000001000000000000001 /* PresetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = PV100001000000000000001 /* PresetsView.swift */; };
+		HS000001000000000000001 /* HistorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = HS100001000000000000001 /* HistorySheet.swift */; };
+		CP000001000000000000001 /* CompressionPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = CP100001000000000000001 /* CompressionPreset.swift */; };
+		SR000001000000000000001 /* SessionRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = SR100001000000000000001 /* SessionRecord.swift */; };
+		INT00001000000000000001 /* CompressImagesIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = INT10001000000000000001 /* CompressImagesIntent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +70,16 @@
 		E71A34AFC5CA41FDACAEE19D /* Preview Content/Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Content/Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F5D3DAE858994431BC84C13F /* DinkyPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinkyPreferences.swift; sourceTree = "<group>"; };
 		F68BBF685BAD4911BEC725DB /* Dinky.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dinky.entitlements; sourceTree = "<group>"; };
+		MB100001000000000000001 /* MenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
+		CI100001000000000000001 /* ClipboardImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardImporter.swift; sourceTree = "<group>"; };
+		FW100001000000000000001 /* FolderWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderWatcher.swift; sourceTree = "<group>"; };
+		MBC10001000000000000001 /* MenuBarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarContentView.swift; sourceTree = "<group>"; };
+		IPS10001000000000000001 /* ImagePreviewSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewSheet.swift; sourceTree = "<group>"; };
+		PV100001000000000000001 /* PresetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetsView.swift; sourceTree = "<group>"; };
+		HS100001000000000000001 /* HistorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySheet.swift; sourceTree = "<group>"; };
+		CP100001000000000000001 /* CompressionPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompressionPreset.swift; sourceTree = "<group>"; };
+		SR100001000000000000001 /* SessionRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRecord.swift; sourceTree = "<group>"; };
+		INT10001000000000000001 /* CompressImagesIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompressImagesIntent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +99,8 @@
 				4FFDD8F0AED14F8CA2C3F9A7 /* ImageItem.swift */,
 				AC05EE39C6DE4195A1EF551B /* CompressionFormat.swift */,
 				F5D3DAE858994431BC84C13F /* DinkyPreferences.swift */,
+				CP100001000000000000001 /* CompressionPreset.swift */,
+				SR100001000000000000001 /* SessionRecord.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -91,6 +113,10 @@
 				D1032BF7B7A74FAF99A74DB7 /* AntyMascotView.swift */,
 				BB100001000000000000001 /* SidebarView.swift */,
 				UB100001000000000000001 /* UpdateBanner.swift */,
+				MBC10001000000000000001 /* MenuBarContentView.swift */,
+				IPS10001000000000000001 /* ImagePreviewSheet.swift */,
+				PV100001000000000000001 /* PresetsView.swift */,
+				HS100001000000000000001 /* HistorySheet.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -100,6 +126,8 @@
 			children = (
 				UC100001000000000000001 /* UpdateChecker.swift */,
 				CC100001000000000000001 /* ContentClassifier.swift */,
+				CI100001000000000000001 /* ClipboardImporter.swift */,
+				FW100001000000000000001 /* FolderWatcher.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -120,6 +148,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		INTGRP001000000000000001 /* Intents */ = {
+			isa = PBXGroup;
+			children = (
+				INT10001000000000000001 /* CompressImagesIntent.swift */,
+			);
+			path = Intents;
+			sourceTree = "<group>";
+		};
 		4E72C0A5F2794B39AD3A51DF /* Dinky */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,10 +165,12 @@
 				5BEB16B6B1534C999F261F79 /* CompressionService.swift */,
 				89ED8C350A5D404EA5F1CCF6 /* PreferencesView.swift */,
 				4FE17DC818E44D3F88D6F88A /* Strings.swift */,
+				MB100001000000000000001 /* MenuBarController.swift */,
 				0E8A023749E745F7BB24F03D /* Models */,
 				32ED8DD8E46E4623979A137D /* Views */,
 				SV100001000000000000001 /* Services */,
 				EX100001000000000000001 /* Extensions */,
+				INTGRP001000000000000001 /* Intents */,
 				9C5E5DA78AAF4A25B1599477 /* Resources */,
 				74EE7205601D464484113FEB /* Assets.xcassets */,
 				F68BBF685BAD4911BEC725DB /* Dinky.entitlements */,
@@ -262,6 +300,16 @@
 				UB000001000000000000001 /* UpdateBanner.swift in Sources */,
 				CC000001000000000000001 /* ContentClassifier.swift in Sources */,
 				AG000001000000000000001 /* View+AdaptiveGlass.swift in Sources */,
+				MB000001000000000000001 /* MenuBarController.swift in Sources */,
+				CI000001000000000000001 /* ClipboardImporter.swift in Sources */,
+				FW000001000000000000001 /* FolderWatcher.swift in Sources */,
+				MBC00001000000000000001 /* MenuBarContentView.swift in Sources */,
+				IPS00001000000000000001 /* ImagePreviewSheet.swift in Sources */,
+				PV000001000000000000001 /* PresetsView.swift in Sources */,
+				HS000001000000000000001 /* HistorySheet.swift in Sources */,
+				CP000001000000000000001 /* CompressionPreset.swift in Sources */,
+				SR000001000000000000001 /* SessionRecord.swift in Sources */,
+				INT00001000000000000001 /* CompressImagesIntent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,7 +475,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 1.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dinky.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -457,7 +505,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 1.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dinky.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
