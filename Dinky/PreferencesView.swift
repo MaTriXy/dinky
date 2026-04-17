@@ -390,8 +390,11 @@ private struct PresetsTab: View {
 
     private func deleteSelected() {
         guard let id = selectedID else { return }
+        selectedID = nil
         prefs.savedPresets = prefs.savedPresets.filter { $0.id != id }
-        selectedID = prefs.savedPresets.last?.id
+        if let next = prefs.savedPresets.last {
+            withAnimation { selectedID = next.id }
+        }
     }
 
     private func binding<T>(_ keyPath: WritableKeyPath<CompressionPreset, T>, at idx: Int) -> Binding<T> {
